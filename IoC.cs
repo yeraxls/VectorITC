@@ -12,6 +12,7 @@ namespace VectorICT
         public static IServiceCollection AddDependency(this IServiceCollection services)
         {
             services.AddTransient<IServiceCountries, ServiceCountries>();
+            services.AddTransient<IServiceJSON, ServiceJSON>();
             
 
             return services;
