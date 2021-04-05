@@ -24,6 +24,11 @@ namespace VectorICT.Services
         {
             return LoadCountries().Where(c => c.Code == code).FirstOrDefault();
         }
+        
+        public void CreateFileTxt(ModAppCountrie countrie)
+        {
+            serviceJSON.CreateFileTxt(countrie);
+        }
 
     }
 }

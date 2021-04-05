@@ -26,5 +26,11 @@ namespace VectorICT.Controllers
         {
             return serviceCountrie.LoadCountrieByCode(code);
         }
+        [HttpPost]
+        [Route("api/Countries/CreateFileTxt")]
+        public void CreateFileTxt([FromBody] ModAppCountrie countrie)
+        {
+            serviceCountrie.CreateFileTxt(countrie);
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace VectorICT.Services
 {
     public class ServiceJSON : IServiceJSON
     {
+        readonly string carpet = @"c:\Storage";
         public List<T> DeserializeJSON<T>() where T : class
         {
             string path = @"./countries.json";
@@ -19,6 +20,23 @@ namespace VectorICT.Services
                 List<T> product = JsonConvert.DeserializeObject<List<T>>(json);
                 return product;
             }
+        }
+
+        public void CreateFileTxt(ModAppCountrie countrie)
+        {
+            ComprobarCarpeta();
+            CreateTxt(countrie);
+        }
+
+        private void ComprobarCarpeta()
+        {
+            if (!Directory.Exists(carpet)) 
+                Directory.CreateDirectory(carpet);
+        }
+        private void CreateTxt(ModAppCountrie countrie)
+        {
+            string json = JsonConvert.SerializeObject(countrie);
+            System.IO.File.WriteAllText(carpet + "\\" + countrie.Name + ".txt" , json);
         }
     }
 }

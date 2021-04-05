@@ -7,5 +7,6 @@ namespace VectorICT.Services
     {
         List<ModAppCountrie> LoadCountries();
         ModAppCountrie LoadCountrieByCode(string code);
+        void CreateFileTxt(ModAppCountrie countrie);
     }
 }
