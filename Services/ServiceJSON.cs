@@ -5,38 +5,45 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using VectorICT.Class;
+using VectorITC.Class;
 
 namespace VectorICT.Services
 {
     public class ServiceJSON : IServiceJSON
     {
-        readonly string carpet = @"c:\Storage";
-        public List<T> DeserializeJSON<T>() where T : class
+        readonly string carpet = ModAppConstants.carpetJson;
+        public List<T> DeserializeJSON<T>(string path) where T : class
         {
-            string path = @"./countries.json";
-            using (StreamReader jsonStream = File.OpenText(path))
+            try
             {
-                var json = jsonStream.ReadToEnd();
-                List<T> product = JsonConvert.DeserializeObject<List<T>>(json);
-                return product;
+                using (StreamReader jsonStream = File.OpenText(path))
+                {
+                    var json = jsonStream.ReadToEnd();
+                    List<T> product = JsonConvert.DeserializeObject<List<T>>(json);
+                    return product;
+                }
+            }
+            catch
+            {
+                return new List<T>();
             }
         }
 
-        public void CreateFileTxt<T>(T countrie, string name) where T : class
+        public void CreateFileTxt<T>(T file, string name) where T : class
         {
-            ComprobarCarpeta();
-            CreateTxt(countrie, name);
+            CheckCarpet();
+            CreateTxt(file, name);
         }
 
-        private void ComprobarCarpeta()
+        private void CheckCarpet()
         {
-            if (!Directory.Exists(carpet)) 
+            if (!Directory.Exists(carpet))
                 Directory.CreateDirectory(carpet);
         }
-        private void CreateTxt <T>(T countrie, string name) where T : class
+        private void CreateTxt<T>(T file, string name) where T : class
         {
-            string json = JsonConvert.SerializeObject(countrie);
-            System.IO.File.WriteAllText(carpet + "\\" + name + ".txt" , json);
+            string json = JsonConvert.SerializeObject(file);
+            System.IO.File.WriteAllText(carpet + "\\" + name + ".txt", json);
         }
     }
 }
