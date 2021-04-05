@@ -6,6 +6,6 @@ namespace VectorICT.Services
     public interface IServiceJSON
     {
         List<T> DeserializeJSON<T>() where T : class;
-        void CreateFileTxt(ModAppCountrie countrie);
+        void CreateFileTxt <T>(T countrie, string name) where T : class;
     }
 }

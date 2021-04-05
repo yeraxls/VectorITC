@@ -22,10 +22,10 @@ namespace VectorICT.Services
             }
         }
 
-        public void CreateFileTxt(ModAppCountrie countrie)
+        public void CreateFileTxt<T>(T countrie, string name) where T : class
         {
             ComprobarCarpeta();
-            CreateTxt(countrie);
+            CreateTxt(countrie, name);
         }
 
         private void ComprobarCarpeta()
@@ -33,10 +33,10 @@ namespace VectorICT.Services
             if (!Directory.Exists(carpet)) 
                 Directory.CreateDirectory(carpet);
         }
-        private void CreateTxt(ModAppCountrie countrie)
+        private void CreateTxt <T>(T countrie, string name) where T : class
         {
             string json = JsonConvert.SerializeObject(countrie);
-            System.IO.File.WriteAllText(carpet + "\\" + countrie.Name + ".txt" , json);
+            System.IO.File.WriteAllText(carpet + "\\" + name + ".txt" , json);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace VectorICT.Services
         
         public void CreateFileTxt(ModAppCountrie countrie)
         {
-            serviceJSON.CreateFileTxt(countrie);
+            serviceJSON.CreateFileTxt(countrie, countrie.Name);
         }
 
     }
