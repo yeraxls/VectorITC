@@ -44,6 +44,7 @@ namespace VectorICT
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "VectorICT", Version = "v1" });
             });
+            IoC.AddDependency(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
