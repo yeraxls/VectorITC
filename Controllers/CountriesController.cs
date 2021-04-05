@@ -15,10 +15,16 @@ namespace VectorICT.Controllers
         public CountriesController(IServiceCountries serviceCountrie) => this.serviceCountrie = serviceCountrie;
 
         [HttpGet]
-        [Route("api/Countries/LocadCountries")]
-        public List<ModAppCountrie> LocadCountries()
+        [Route("api/Countries/LoadCountries")]
+        public List<ModAppCountrie> LoadCountries()
         {
-            return serviceCountrie.LocadCountries();
+            return serviceCountrie.LoadCountries();
+        }
+        [HttpGet]
+        [Route("api/Countries/LoadCountrieByCode")]
+        public ModAppCountrie LoadCountrieByCode(string code)
+        {
+            return serviceCountrie.LoadCountrieByCode(code);
         }
     }
 }

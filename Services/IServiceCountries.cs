@@ -5,6 +5,7 @@ namespace VectorICT.Services
 {
     public interface IServiceCountries
     {
-        List<ModAppCountrie> LocadCountries();
+        List<ModAppCountrie> LoadCountries();
+        ModAppCountrie LoadCountrieByCode(string code);
     }
 }

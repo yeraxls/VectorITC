@@ -14,10 +14,16 @@ namespace VectorICT.Services
 
         public ServiceCountries(IServiceJSON serviceJSON) => this.serviceJSON = serviceJSON;
 
-        public List<ModAppCountrie> LocadCountries()
+        public List<ModAppCountrie> LoadCountries()
         {
 
             return serviceJSON.DeserializeJSON<ModAppCountrie>();
         }
+
+        public ModAppCountrie LoadCountrieByCode(string code)
+        {
+            return LoadCountries().Where(c => c.Code == code).FirstOrDefault();
+        }
+
     }
 }
