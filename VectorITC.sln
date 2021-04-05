@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorICT", "VectorICT.csproj", "{46A04AAD-F8E8-4D5A-B893-6275DAE5E75A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VectorITC", "VectorITC.csproj", "{46A04AAD-F8E8-4D5A-B893-6275DAE5E75A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorICTTest", "..\VectorICTTest\VectorICTTest.csproj", "{3C8632C7-2D9F-4590-949D-8557B19B2771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VectorITCTest", "..\VectorICTTest\VectorITCTest.csproj", "{3C8632C7-2D9F-4590-949D-8557B19B2771}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
